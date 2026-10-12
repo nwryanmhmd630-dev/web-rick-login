@@ -1,1 +1,0 @@
-(function(){'use strict';window.Webric=window.Webric||{};Webric.DEFAULTS={theme:'dark',brand:'Webric',brandFa:'وب‌ریک',tagline:'قالب نمایشی راست‌چین',primary:'#71e0c1',secondary:'#8daeff',accent:'#ffca86',demo:true};Webric.REGISTER_FIELDS=['fullName','email','mobile','birthDate','nationalCode','password'];})();
