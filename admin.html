@@ -1,280 +1,155 @@
 <!doctype html>
-<html lang="fa" dir="rtl" data-theme="lapis" data-mode="dark">
+<html lang="fa" dir="rtl" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="پنل مدیریت فرم ورود و ثبت‌نام وب‌ریک">
-  <meta name="theme-color" content="#0c1430">
+  <title>پنل تنظیمات | وب‌ریک</title>
+  <meta name="description" content="پنل دمو و تنظیمات محلی قالب وب‌ریک">
+  <meta name="theme-color" content="#070a17">
   <meta name="color-scheme" content="dark light">
-  <title>مدیریت | وب‌ریک</title>
-  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="preload" href="assets/fonts/vazirmatn-var.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/webric.css">
-  <link rel="stylesheet" href="assets/css/admin.css">
-  <link rel="stylesheet" href="assets/css/auth.css">
-  <script src="assets/js/core.js"></script>
-  <script src="assets/js/admin.js" defer></script>
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts/fonts.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="js/config.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/theme.js"></script>
 </head>
-<body>
-<a class="wr-skip" href="#adm-main">رفتن به محتوا</a>
-<div class="adm" id="adm">
-  <aside class="adm-side" id="admSide" aria-label="منوی اصلی">
-    <div class="wr-tiles" data-tiles="90" aria-hidden="true"></div>
-    <a class="wr-logo" href="index.html"><span data-mark></span><span data-brand>وب‌ریک</span></a>
-    <small style="margin:-10px 12px 0">پنل مدیریت ورود و ثبت‌نام</small>
-    <nav class="adm-nav" aria-label="بخش‌ها">
-      <p class="adm-nav-label">مدیریت</p>
-      <button type="button" data-go="overview" aria-current="page"><span data-icon="home"></span>پیشخوان</button>
-<button type="button" data-go="fields"><span data-icon="form"></span>فیلدهای ثبت‌نام</button>
-<button type="button" data-go="appearance"><span data-icon="palette"></span>شخصی‌سازی ظاهر</button>
-<button type="button" data-go="users"><span data-icon="users"></span>کاربران<span class="count" data-count-users></span></button>
-<button type="button" data-go="security"><span data-icon="shield"></span>امنیت و ورود</button>
-<button type="button" data-go="tools"><span data-icon="settings"></span>ابزارها</button>
-
+<body data-page="admin" data-title="پنل تنظیمات" class="admin-body">
+<a class="skip-link" href="#admin-main">پرش به تنظیمات</a>
+<div class="admin" data-admin>
+  <aside class="admin-sidebar" id="admin-sidebar" aria-label="بخش‌های پنل">
+    <div class="sidebar-head">
+      <a class="brand" href="index.html" aria-label="وب‌ریک، صفحه معرفی">
+      <span class="brand-mark" data-brand-mark aria-hidden="true"><svg class="" aria-hidden="true"><use href="#i-logo"/></svg></span>
+      <span class="brand-text"><span class="brand-name" data-brand="name">Webric</span><span class="brand-sep" aria-hidden="true">|</span><span class="brand-fa" data-brand="nameFa">وب‌ریک</span></span>
+    </a>
+      <button class="btn btn-quiet btn-icon btn-sm sidebar-close" type="button" data-sidebar-close aria-label="بستن منو"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></button>
+    </div>
+    <p class="sidebar-mode"><span class="badge badge-demo" data-run-badge>پنل دمو و تنظیمات محلی</span></p>
+    <nav aria-label="تنظیمات">
+      <ul class="nav">
+          <li><a class="nav-link" href="#dashboard" data-nav="dashboard"><svg class="icon" aria-hidden="true"><use href="#i-grid"/></svg><span>داشبورد</span><i class="nav-dot" aria-hidden="true"></i></a></li>
+          <li><a class="nav-link" href="#appearance" data-nav="appearance"><svg class="icon" aria-hidden="true"><use href="#i-palette"/></svg><span>ظاهر و برند</span><i class="nav-dot" aria-hidden="true"></i></a></li>
+          <li><a class="nav-link" href="#login" data-nav="login"><svg class="icon" aria-hidden="true"><use href="#i-login"/></svg><span>تنظیمات ورود</span><i class="nav-dot" aria-hidden="true"></i></a></li>
+          <li><a class="nav-link" href="#register" data-nav="register"><svg class="icon" aria-hidden="true"><use href="#i-user-plus"/></svg><span>تنظیمات ثبت‌نام</span><i class="nav-dot" aria-hidden="true"></i></a></li>
+          <li><a class="nav-link" href="#methods" data-nav="methods"><svg class="icon" aria-hidden="true"><use href="#i-key"/></svg><span>روش‌های احراز هویت</span><i class="nav-dot" aria-hidden="true"></i></a></li>
+          <li><a class="nav-link" href="#security" data-nav="security"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg><span>رمز عبور و امنیت</span><i class="nav-dot" aria-hidden="true"></i></a></li>
+          <li><a class="nav-link" href="#texts" data-nav="texts"><svg class="icon" aria-hidden="true"><use href="#i-type"/></svg><span>متن‌ها و پیام‌ها</span><i class="nav-dot" aria-hidden="true"></i></a></li>
+          <li><a class="nav-link" href="#advanced" data-nav="advanced"><svg class="icon" aria-hidden="true"><use href="#i-sliders"/></svg><span>پیشرفته</span><i class="nav-dot" aria-hidden="true"></i></a></li>
+      </ul>
     </nav>
-    <div class="adm-side-foot">
-      <a href="login.html" target="_blank" rel="noopener"><span data-icon="external"></span>مشاهده فرم کاربر</a>
-      <button type="button" data-logout-admin><span data-icon="logout"></span>خروج از پنل</button>
+    <div class="sidebar-foot">
+      <a class="link-quiet" href="login.html" target="_blank" rel="noopener"><svg class="icon icon-sm" aria-hidden="true"><use href="#i-external"/></svg>صفحه ورود</a>
+      <a class="link-quiet" href="index.html"><svg class="icon icon-sm" aria-hidden="true"><use href="#i-home"/></svg>معرفی قالب</a>
+      <span class="version">نسخه <span class="num" data-version>1.0.0</span></span>
     </div>
   </aside>
-  <div class="adm-scrim" data-side-close></div>
+  <div class="sidebar-backdrop" data-sidebar-close hidden></div>
 
-  <div class="adm-main" id="adm-main">
-    <header class="adm-top">
-      <button class="wr-btn wr-btn--ghost wr-btn--icon adm-menu" type="button" data-side-open aria-label="باز کردن منو" aria-controls="admSide" aria-expanded="false"><span data-icon="menu"></span></button>
-      <h1 data-top-title>پیشخوان</h1>
-      <span class="wr-chip wr-chip--brand adm-dirty"><span data-icon="sparkle"></span>تغییرات ذخیره‌نشده</span>
-      <button class="wr-btn wr-btn--ghost wr-btn--icon" type="button" data-mode-toggle aria-label="تغییر حالت نمایش"><span class="when-dark" data-icon="sun"></span><span class="when-light" data-icon="moon"></span></button>
-      <button class="wr-btn wr-btn--primary" type="button" data-save disabled><span data-icon="check"></span><span class="save-label">ذخیره تغییرات</span></button>
+  <div class="admin-main" id="admin-main">
+    <header class="admin-header">
+      <button class="btn btn-ghost btn-icon menu-toggle" type="button" data-sidebar-toggle aria-controls="admin-sidebar" aria-expanded="false" aria-label="باز کردن منو"><svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg></button>
+      <div class="admin-title">
+        <h1 data-section-title>داشبورد</h1>
+        <p class="save-state" data-save-state aria-live="polite">همه تغییرات ذخیره شده است</p>
+      </div>
+      <div class="admin-actions">
+        <button class="btn btn-ghost btn-icon theme-toggle" type="button" data-theme-toggle aria-pressed="true" aria-label="تغییر تم"><svg class="icon i-sun" aria-hidden="true"><use href="#i-sun"/></svg><svg class="icon i-moon" aria-hidden="true"><use href="#i-moon"/></svg></button>
+        <button class="btn btn-ghost" type="button" data-preview-open><svg class="icon" aria-hidden="true"><use href="#i-eye"/></svg><span class="hide-sm">پیش‌نمایش</span></button>
+        <button class="btn btn-quiet" type="button" data-discard hidden><svg class="icon" aria-hidden="true"><use href="#i-rotate"/></svg><span class="hide-sm">لغو تغییرات</span></button>
+        <button class="btn btn-primary" type="button" data-save><svg class="icon" aria-hidden="true"><use href="#i-save"/></svg><span>ذخیره</span></button>
+      </div>
     </header>
 
-    <main class="adm-content" id="adm-content">
-
-      <!-- Overview -->
-      <section class="adm-section" data-section="overview">
-        <div class="adm-head">
-          <div><h2>سلام، آماده‌ای؟</h2><p>وضعیت فرم ورود و ثبت‌نام در یک نگاه.</p></div>
-          <div class="adm-head-actions">
-            <button class="wr-btn" type="button" data-go="fields"><span data-icon="form"></span>فیلدها</button>
-            <button class="wr-btn wr-btn--primary" type="button" data-go="appearance"><span data-icon="palette"></span>ظاهر</button>
-          </div>
+    <div class="admin-body-wrap">
+      <div class="alert alert-demo admin-notice"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg><span><strong>پنل دمو و تنظیمات محلی.</strong> تنظیمات فقط در مرورگر همین دستگاه (LocalStorage) ذخیره می‌شود و هیچ رمز، توکن یا داده محرمانه‌ای نگه نمی‌دارد. این صفحه هیچ حفاظت یا احراز هویت مدیری ندارد؛ پیش از انتشار عمومی، آن را حذف کنید یا پشت احراز هویت سمت سرور قرار دهید.</span></div>
+      <div class="issues" data-issues aria-live="polite"></div>
+      <div class="admin-content">
+        <div class="admin-sections">
+          <section class="admin-section" id="sec-dashboard" data-section="dashboard" aria-labelledby="h-dashboard" hidden>
+            <header class="section-head"><h2 id="h-dashboard">داشبورد</h2><p>نمای کلی پیکربندی، وضعیت روش‌ها و دسترسی سریع.</p></header>
+            <div class="section-body" data-controls="dashboard"></div>
+          </section>
+          <section class="admin-section" id="sec-appearance" data-section="appearance" aria-labelledby="h-appearance" hidden>
+            <header class="section-head"><h2 id="h-appearance">ظاهر و برند</h2><p>رنگ، شیشه، تایپوگرافی، چیدمان، هاله‌ها و برند.</p></header>
+            <div class="section-body" data-controls="appearance"></div>
+          </section>
+          <section class="admin-section" id="sec-login" data-section="login" aria-labelledby="h-login" hidden>
+            <header class="section-head"><h2 id="h-login">تنظیمات ورود</h2><p>شناسه‌های مجاز و گزینه‌های فرم ورود.</p></header>
+            <div class="section-body" data-controls="login"></div>
+          </section>
+          <section class="admin-section" id="sec-register" data-section="register" aria-labelledby="h-register" hidden>
+            <header class="section-head"><h2 id="h-register">تنظیمات ثبت‌نام</h2><p>فیلدها، ترتیب، ضروری بودن و قوانین.</p></header>
+            <div class="section-body" data-controls="register"></div>
+          </section>
+          <section class="admin-section" id="sec-methods" data-section="methods" aria-labelledby="h-methods" hidden>
+            <header class="section-head"><h2 id="h-methods">روش‌های احراز هویت</h2><p>روش‌های احراز هویت و وضعیت واقعی اتصال هرکدام.</p></header>
+            <div class="section-body" data-controls="methods"></div>
+          </section>
+          <section class="admin-section" id="sec-security" data-section="security" aria-labelledby="h-security" hidden>
+            <header class="section-head"><h2 id="h-security">رمز عبور و امنیت</h2><p>قوانین رمز عبور و پیام‌های امنیتی.</p></header>
+            <div class="section-body" data-controls="security"></div>
+          </section>
+          <section class="admin-section" id="sec-texts" data-section="texts" aria-labelledby="h-texts" hidden>
+            <header class="section-head"><h2 id="h-texts">متن‌ها و پیام‌ها</h2><p>همه متن‌ها، دکمه‌ها و پیام‌های خطا و موفقیت.</p></header>
+            <div class="section-body" data-controls="texts"></div>
+          </section>
+          <section class="admin-section" id="sec-advanced" data-section="advanced" aria-labelledby="h-advanced" hidden>
+            <header class="section-head"><h2 id="h-advanced">پیشرفته</h2><p>اتصال بک‌اند، ورود و خروج JSON و بازنشانی.</p></header>
+            <div class="section-body" data-controls="advanced"></div>
+          </section>
         </div>
-        <div class="stats">
-          <div class="card stat stat--lead"><div class="wr-tiles" data-tiles="90" aria-hidden="true"></div><span class="stat-label"><span data-icon="users"></span>کاربران</span><span class="stat-value wr-num" data-stat-users>۰</span><span class="stat-note">ثبت‌شده در این مرورگر</span></div>
-          <div class="card stat"><span class="stat-label"><span data-icon="form"></span>فیلدهای فعال</span><span class="stat-value wr-num" data-stat-fields>۰</span><span class="stat-note">از کل فیلدهای فرم ثبت‌نام</span></div>
-          <div class="card stat"><span class="stat-label"><span data-icon="user"></span>ثبت‌نام ۷ روز اخیر</span><span class="stat-value wr-num" data-stat-week>۰</span><span class="stat-note">حساب جدید</span></div>
-          <div class="card stat"><span class="stat-label"><span data-icon="shield"></span>ورود اجتماعی</span><span class="stat-value" data-stat-social style="font-size:1.6rem">—</span><span class="stat-note">ارائه‌دهنده فعال</span></div>
-        </div>
-        <div class="grid-main">
-          <div class="card">
-            <div class="card-head"><div><h3>ثبت‌نام‌ها در ۷ روز اخیر</h3><p>بر اساس تاریخ ساخت حساب</p></div></div>
-            <div class="bars" data-bars></div>
-          </div>
-          <div class="card">
-            <div class="card-head"><div><h3>آخرین کاربران</h3><p>ده کاربر اخیر</p></div><button class="wr-btn wr-btn--ghost wr-btn--sm" type="button" data-go="users">همه</button></div>
-            <div class="list" data-recent></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-head"><div><h3>دسترسی سریع</h3><p>پرکاربردترین بخش‌ها</p></div></div>
-          <div class="quick">
-            <a href="login.html" target="_blank" rel="noopener"><i style="--sw:#1d4497"></i>فرم ورود (لاجورد)</a>
-            <a href="login-light.html" target="_blank" rel="noopener"><i style="--sw:#f1ece2"></i>فرم ورود (روشن)</a>
-            <a href="reset-password.html" target="_blank" rel="noopener"><i style="--sw:#c8570d"></i>بازیابی رمز</a>
-            <a href="index.html"><i style="--sw:#8cc8bc"></i>صفحه نمایش تم‌ها</a>
-          </div>
-        </div>
-      </section>
-
-      <!-- Fields -->
-      <section class="adm-section" data-section="fields" hidden>
-        <div class="adm-head">
-          <div><h2>فیلدهای ثبت‌نام</h2><p>فیلدها را روشن/خاموش کنید، اجباری کنید یا ترتیبشان را عوض کنید.</p></div>
-          <div class="adm-head-actions"><button class="wr-btn wr-btn--primary" type="button" data-add-field><span data-icon="plus"></span>فیلد سفارشی</button></div>
-        </div>
-        <div class="card">
-          <div class="toolbar">
-            <div class="wr-control"><span class="wr-ico" data-icon="search"></span><input class="wr-input" type="search" placeholder="جستجوی فیلد…" data-field-search></div>
-          </div>
-          <div data-field-list></div>
-        </div>
-      </section>
-
-      <!-- Appearance -->
-      <section class="adm-section" data-section="appearance" hidden>
-        <div class="adm-head">
-          <div><h2>شخصی‌سازی ظاهر</h2><p>تغییرات را همان لحظه در پیش‌نمایش ببینید.</p></div>
-          <div class="adm-head-actions">
-            <button class="wr-btn" type="button" data-reset-theme><span data-icon="refresh"></span>بازگردانی پیش‌فرض</button>
-          </div>
-        </div>
-        <div class="appearance">
-          <div class="appearance-controls">
-            <div class="card">
-              <div class="card-head"><div><h3>تم رنگی</h3><p>پالت برند فرم را انتخاب کنید</p></div></div>
-              <div class="themes" data-themes></div>
-              <div class="set-sep" style="margin:16px 0"></div>
-              <div class="set-row">
-                <div><label for="primaryColor">رنگ دلخواه برند</label><small>اگر تنظیم شود، روی تم بالا اولویت دارد.</small></div>
-                <div class="color-row"><input type="color" id="primaryColor" data-set="primary"><code data-primary-code>—</code><button class="wr-btn wr-btn--ghost wr-btn--sm" type="button" data-clear-primary>پاک‌کردن</button></div>
+        <aside class="preview-panel" data-preview-panel aria-label="پیش‌نمایش زنده">
+          <div class="preview-bar">
+            <div class="preview-pages segmented" role="radiogroup" aria-label="صفحه پیش‌نمایش" data-preview-pages>
+              <label><input type="radio" name="pv-page" value="login.html" checked><span>ورود</span></label>
+              <label><input type="radio" name="pv-page" value="register.html"><span>ثبت‌نام</span></label>
+              <label><input type="radio" name="pv-page" value="reset-password.html"><span>بازیابی</span></label>
+              <label><input type="radio" name="pv-page" value="verify-code.html?flow=reset"><span>کد</span></label>
+              <label><input type="radio" name="pv-page" value="set-password.html"><span>رمز جدید</span></label>
+            </div>
+            <div class="preview-tools">
+              <div class="segmented" role="radiogroup" aria-label="اندازه دستگاه" data-preview-devices>
+                <label><input type="radio" name="pv-device" value="desktop"><span><svg class="icon" aria-hidden="true"><use href="#i-monitor"/></svg><span class="sr-only">دسکتاپ</span></span></label>
+                <label><input type="radio" name="pv-device" value="tablet"><span><svg class="icon" aria-hidden="true"><use href="#i-tablet"/></svg><span class="sr-only">تبلت</span></span></label>
+                <label><input type="radio" name="pv-device" value="mobile" checked><span><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span class="sr-only">موبایل</span></span></label>
               </div>
-            </div>
-            <div class="card">
-              <div class="card-head"><div><h3>حالت نمایش</h3><p>پیش‌فرض صفحات</p></div></div>
-              <div class="set">
-                <div class="set-row"><div><span class="set-title">حالت</span><small>«خودکار» از تنظیمات سیستم کاربر پیروی می‌کند.</small></div>
-                  <div class="seg" role="radiogroup" aria-label="حالت نمایش">
-                    <label><input type="radio" name="mode" value="dark" data-set="mode"><span>تیره</span></label>
-                    <label><input type="radio" name="mode" value="light" data-set="mode"><span>روشن</span></label>
-                    <label><input type="radio" name="mode" value="system" data-set="mode"><span>خودکار</span></label>
-                  </div></div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-head"><div><h3>شکل و ابعاد</h3><p>گردی، شیشه‌ای بودن و اندازه‌ها</p></div></div>
-              <div class="set">
-                <div class="set-range"><div class="top"><label for="radius">گردی گوشه‌ها</label><output data-out="radius"></output></div><input class="wr-range" id="radius" type="range" min="0" max="32" data-set="radius"></div>
-                <div class="set-range"><div class="top"><label for="blur">شیشه‌ای (تاری پس‌زمینه)</label><output data-out="blur"></output></div><input class="wr-range" id="blur" type="range" min="0" max="40" data-set="blur"></div>
-                <div class="set-range"><div class="top"><label for="formWidth">عرض فرم</label><output data-out="formWidth"></output></div><input class="wr-range" id="formWidth" type="range" min="340" max="560" step="4" data-set="formWidth"></div>
-                <div class="set-range"><div class="top"><label for="controlH">ارتفاع ورودی و دکمه</label><output data-out="controlH"></output></div><input class="wr-range" id="controlH" type="range" min="44" max="64" data-set="controlH"></div>
-                <div class="set-range"><div class="top"><label for="fontSize">اندازه متن پایه</label><output data-out="fontSize"></output></div><input class="wr-range" id="fontSize" type="range" min="14" max="18" data-set="fontSize"></div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-head"><div><h3>دکمه و جلوه‌ها</h3></div></div>
-              <div class="set">
-                <div class="set-row"><div><span class="set-title">سبک دکمه اصلی</span></div>
-                  <div class="seg" role="radiogroup" aria-label="سبک دکمه">
-                    <label><input type="radio" name="btnStyle" value="solid" data-set="btnStyle"><span>پر</span></label>
-                    <label><input type="radio" name="btnStyle" value="gradient" data-set="btnStyle"><span>گرادیان</span></label>
-                    <label><input type="radio" name="btnStyle" value="outline" data-set="btnStyle"><span>خطی</span></label>
-                    <label><input type="radio" name="btnStyle" value="soft" data-set="btnStyle"><span>نرم</span></label>
-                  </div></div>
-                <div class="set-sep"></div>
-                <div class="set-row"><div><label for="focusGlow">درخشش فوکوس</label><small>حلقه نورانی دور فیلد فعال</small></div><label class="wr-switch"><input id="focusGlow" type="checkbox" data-set="focusGlow"><span></span></label></div>
-                <div class="set-row"><div><label for="anim">انیمیشن‌ها</label><small>برای کاهش حرکت، خاموش کنید.</small></div><label class="wr-switch"><input id="anim" type="checkbox" data-set="anim"><span></span></label></div>
-                <div class="set-row"><div><label for="art">پنل تصویری کنار فرم</label><small>در دسکتاپ نمایش داده می‌شود.</small></div><label class="wr-switch"><input id="art" type="checkbox" data-set="art"><span></span></label></div>
-              </div>
+              <button class="btn btn-primary btn-sm" type="button" data-preview-close hidden><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>بازگشت به مدیریت</button>
             </div>
           </div>
-          <div class="card preview">
-            <div class="preview-bar">
-              <div class="seg" role="radiogroup" aria-label="نوع پیش‌نمایش">
-                <label><input type="radio" name="device" value="desktop" checked data-device-set><span>دسکتاپ</span></label>
-                <label><input type="radio" name="device" value="mobile" data-device-set><span>موبایل</span></label>
-              </div>
-              <div class="seg" role="radiogroup" aria-label="صفحه">
-                <label><input type="radio" name="pvtab" value="login" checked data-pv-tab><span>ورود</span></label>
-                <label><input type="radio" name="pvtab" value="register" data-pv-tab><span>ثبت‌نام</span></label>
-              </div>
-            </div>
-            <div class="preview-stage" data-device="desktop"><iframe title="پیش‌نمایش فرم" data-preview src="login.html?preview=1"></iframe></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Users -->
-      <section class="adm-section" data-section="users" hidden>
-        <div class="adm-head">
-          <div><h2>کاربران</h2><p>حساب‌های ثبت‌شده در همین مرورگر.</p></div>
-          <div class="adm-head-actions"><button class="wr-btn wr-btn--primary" type="button" data-add-user><span data-icon="plus"></span>کاربر جدید</button></div>
-        </div>
-        <div class="card">
-          <div class="toolbar">
-            <div class="wr-control"><span class="wr-ico" data-icon="search"></span><input class="wr-input" type="search" placeholder="جستجوی نام، ایمیل یا موبایل…" data-user-search></div>
-            <select class="wr-select" data-user-filter aria-label="فیلتر وضعیت"><option value="all">همه</option><option value="active">فعال</option><option value="blocked">مسدود</option></select>
-          </div>
-          <div class="table-wrap"><table class="table">
-            <thead><tr><th scope="col">کاربر</th><th scope="col">موبایل</th><th scope="col">وضعیت</th><th scope="col">ثبت‌نام</th><th scope="col"><span class="wr-visually-hidden">عملیات</span></th></tr></thead>
-            <tbody data-user-body></tbody>
-          </table></div>
-          <div class="empty" data-user-empty hidden><span data-icon="users"></span>کاربری پیدا نشد.</div>
-        </div>
-      </section>
-
-      <!-- Security -->
-      <section class="adm-section" data-section="security" hidden>
-        <div class="adm-head"><div><h2>امنیت و ورود</h2><p>قوانین رمز، تلاش‌های ناموفق و روش‌های ورود.</p></div></div>
-        <div class="grid-2">
-          <div class="card">
-            <div class="card-head"><div><h3>رمز عبور</h3><p>برای کاربران جدید و بازیابی</p></div></div>
-            <div class="set">
-              <div class="set-range"><div class="top"><label for="minPass">حداقل طول رمز</label><output data-out="minPass"></output></div><input class="wr-range" id="minPass" type="range" min="6" max="16" data-set="minPass"></div>
-              <div class="set-row"><div><label for="strongPass">رمز قوی الزامی</label><small>حداقل «خوب» بودن قدرت رمز</small></div><label class="wr-switch"><input id="strongPass" type="checkbox" data-set="strongPass"><span></span></label></div>
+          <div class="preview-stage" data-stage>
+            <div class="preview-frame" data-frame-wrap>
+              <iframe data-preview title="پیش‌نمایش زنده صفحه" src="login.html?preview=1" loading="eager"></iframe>
             </div>
           </div>
-          <div class="card">
-            <div class="card-head"><div><h3>محدودیت تلاش</h3><p>بعد از چند ورود ناموفق، ورود موقتاً قفل شود</p></div></div>
-            <div class="set">
-              <div class="set-range"><div class="top"><label for="lockout">تعداد تلاش مجاز (۰ = بدون قفل)</label><output data-out="lockout"></output></div><input class="wr-range" id="lockout" type="range" min="0" max="10" data-set="lockout"></div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-head"><div><h3>ورود اجتماعی</h3><p>دکمه‌های ورود با سرویس‌های دیگر</p></div></div>
-            <div class="set">
-              <div class="set-row"><div><label for="soc-google">گوگل</label></div><label class="wr-switch"><input id="soc-google" type="checkbox" data-social="google"><span></span></label></div>
-              <div class="set-row"><div><label for="soc-apple">اپل</label></div><label class="wr-switch"><input id="soc-apple" type="checkbox" data-social="apple"><span></span></label></div>
-              <div class="set-row"><div><label for="soc-github">گیت‌هاب</label></div><label class="wr-switch"><input id="soc-github" type="checkbox" data-social="github"><span></span></label></div>
-              <small class="set-hint">برای فعال‌سازی واقعی، باید سرور OAuth را متصل کنید (راهنما را ببینید).</small>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-head"><div><h3>متن و رفتار فرم</h3></div></div>
-            <div class="set">
-              <div class="set-row"><div><label for="allowRegister">ثبت‌نام باز باشد</label><small>خاموش‌کردن، فقط فرم ورود نمایش می‌دهد.</small></div><label class="wr-switch"><input id="allowRegister" type="checkbox" data-set="allowRegister"><span></span></label></div>
-              <div class="set-row"><div><label for="remember">گزینه «مرا به خاطر بسپار»</label></div><label class="wr-switch"><input id="remember" type="checkbox" data-set="remember"><span></span></label></div>
-              <div class="set-row"><div><label for="demoHint">نمایش حساب نمایشی</label><small>برای نمایش دادن محصول به مشتری مفید است.</small></div><label class="wr-switch"><input id="demoHint" type="checkbox" data-set="demoHint"><span></span></label></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Tools -->
-      <section class="adm-section" data-section="tools" hidden>
-        <div class="adm-head"><div><h2>ابزارها</h2><p>پشتیبان‌گیری، بازیابی و پاک‌سازی.</p></div></div>
-        <div class="tools">
-          <div class="card tool"><div class="tool-ico" data-icon="download"></div><h3>خروجی تنظیمات</h3><p class="wr-muted">فایل JSON از تنظیمات فعلی بگیرید تا روی سرور دیگری استفاده کنید.</p><button class="wr-btn" type="button" data-export><span data-icon="download"></span>دانلود JSON</button></div>
-          <div class="card tool"><div class="tool-ico" data-icon="upload"></div><h3>ورود تنظیمات</h3><p class="wr-muted">فایل JSON ذخیره‌شده را انتخاب کنید.</p><label class="wr-btn" style="cursor:pointer"><span data-icon="upload"></span>انتخاب فایل<input type="file" accept="application/json" hidden data-import></label></div>
-          <div class="card tool"><div class="tool-ico" data-icon="refresh"></div><h3>بازگردانی تنظیمات</h3><p class="wr-muted">تمام تنظیمات ظاهری و فیلدها به حالت اولیه برمی‌گردد.</p><button class="wr-btn wr-btn--danger" type="button" data-reset-all><span data-icon="refresh"></span>بازگردانی کامل</button></div>
-          <div class="card tool"><div class="tool-ico" data-icon="users"></div><h3>کاربران نمایشی</h3><p class="wr-muted">لیست نمونه کاربران را دوباره بسازید یا همه کاربران را پاک کنید.</p><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="wr-btn" type="button" data-reseed><span data-icon="refresh"></span>بازسازی نمونه‌ها</button><button class="wr-btn wr-btn--danger" type="button" data-clear-users><span data-icon="trash"></span>پاک‌کردن کاربران</button></div></div>
-        </div>
-      </section>
-    </main>
+          <p class="preview-note">پیش‌نمایش، تغییرات ذخیره‌نشده را نشان می‌دهد. فرم‌های داخل پیش‌نمایش همیشه نمایشی‌اند. <span class="num" data-device-label></span></p>
+        </aside>
+      </div>
+    </div>
   </div>
 </div>
 
-<nav class="adm-bnav" aria-label="ناوبری سریع"><button type="button" data-go="overview" aria-current="page"><span data-icon="home"></span>پیشخوان</button><button type="button" data-go="fields"><span data-icon="form"></span>فیلدهای</button><button type="button" data-go="appearance"><span data-icon="palette"></span>شخصی‌سازی</button><button type="button" data-go="users"><span data-icon="users"></span>کاربران</button><button type="button" data-go="security"><span data-icon="shield"></span>امنیت</button></nav>
-
-<!-- Field editor -->
-<div class="wr-modal" id="fieldModal" hidden role="dialog" aria-modal="true" aria-labelledby="fmTitle">
-  <div class="wr-modal-backdrop" data-close></div>
-  <form class="wr-modal-box" data-field-form novalidate>
-    <h2 id="fmTitle">فیلد سفارشی</h2>
-    <p>این فیلد به فرم ثبت‌نام اضافه می‌شود.</p>
-    <div class="wr-modal-body">
-      <div class="wr-field" data-rule="text"><label class="wr-label" for="ffLabel"><span>عنوان</span></label><input class="wr-input" id="ffLabel" name="label" placeholder="مثلاً نام شرکت" required><p class="wr-msg" data-msg></p></div>
-      <div class="wr-field" data-rule="key"><label class="wr-label" for="ffKey"><span>کلید انگلیسی</span></label><input class="wr-input wr-ltr" id="ffKey" name="key" placeholder="company_name" required><p class="wr-msg" data-msg>فقط حروف انگلیسی، عدد و _ (مثلاً company_name)</p></div>
-      <div class="wr-field"><label class="wr-label" for="ffType"><span>نوع</span></label><select class="wr-select" id="ffType" name="type"><option value="text">متن</option><option value="email">ایمیل</option><option value="tel">موبایل</option><option value="number">عدد</option><option value="date">تاریخ</option><option value="textarea">متن بلند</option></select></div>
-      <label class="wr-check"><input type="checkbox" name="required"><span class="box" data-icon="check"></span>اجباری باشد</label>
+<dialog class="dialog" id="confirm-dialog" aria-labelledby="confirm-title">
+  <div class="dialog-inner">
+    <div class="dialog-head"><h2 id="confirm-title" data-confirm-title>تأیید</h2></div>
+    <p class="dialog-body" data-confirm-text></p>
+    <div class="dialog-actions">
+      <button class="btn btn-danger" type="button" data-confirm-ok>تأیید</button>
+      <button class="btn btn-ghost" type="button" data-confirm-cancel>انصراف</button>
     </div>
-    <div class="wr-modal-actions"><button class="wr-btn" type="button" data-close>انصراف</button><button class="wr-btn wr-btn--primary" type="submit">افزودن فیلد</button></div>
-  </form>
-</div>
-
-<!-- User editor -->
-<div class="wr-modal" id="userModal" hidden role="dialog" aria-modal="true" aria-labelledby="umTitle">
-  <div class="wr-modal-backdrop" data-close></div>
-  <form class="wr-modal-box" data-user-form novalidate>
-    <h2 id="umTitle">کاربر جدید</h2>
-    <p>کاربر در همین مرورگر ساخته می‌شود.</p>
-    <div class="wr-modal-body">
-      <div class="wr-field" data-rule="text"><label class="wr-label" for="ufName"><span>نام و نام خانوادگی</span></label><input class="wr-input" id="ufName" name="name" required><p class="wr-msg" data-msg></p></div>
-      <div class="wr-field" data-rule="email"><label class="wr-label" for="ufEmail"><span>ایمیل</span></label><input class="wr-input wr-ltr" id="ufEmail" name="email" type="email" required><p class="wr-msg" data-msg></p></div>
-      <div class="wr-field" data-rule="tel"><label class="wr-label" for="ufPhone"><span>موبایل <span class="wr-muted">(اختیاری)</span></span></label><input class="wr-input wr-ltr" id="ufPhone" name="phone" type="tel" inputmode="tel" placeholder="0912…"><p class="wr-msg" data-msg></p></div>
-      <div class="wr-field" data-rule="password"><label class="wr-label" for="ufPass"><span>رمز عبور</span></label><input class="wr-input wr-ltr" id="ufPass" name="password" type="password" required><p class="wr-msg" data-msg></p></div>
-    </div>
-    <div class="wr-modal-actions"><button class="wr-btn" type="button" data-close>انصراف</button><button class="wr-btn wr-btn--primary" type="submit">ایجاد کاربر</button></div>
-  </form>
-</div>
+  </div>
+</dialog>
+<div class="toast-stack" data-toasts aria-live="polite"></div>
+  <script src="js/icons.js" defer></script>
+  <script src="js/validation.js" defer></script>
+  <script src="js/api.js" defer></script>
+  <script src="js/auth-ui.js" defer></script>
+  <script src="js/admin.js" defer></script>
 </body>
 </html>

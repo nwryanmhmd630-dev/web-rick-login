@@ -1,136 +1,108 @@
 <!doctype html>
-<html lang="fa" dir="rtl" data-theme="lapis" data-mode="dark">
+<html lang="fa" dir="rtl" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="صفحه ورود و ثبت‌نام راست‌چین وب‌ریک، پوسته لاجورد">
-  <meta name="theme-color" content="#0c1430">
+  <title>ورود | وب‌ریک</title>
+  <meta name="description" content="ورود به حساب کاربری وب‌ریک">
+  <meta name="theme-color" content="#070a17">
   <meta name="color-scheme" content="dark light">
-  <title>ورود و ثبت‌نام | وب‌ریک — لاجورد</title>
-  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="preload" href="assets/fonts/vazirmatn-var.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/webric.css">
-  <link rel="stylesheet" href="assets/css/auth.css">
-  <script src="assets/js/core.js"></script>
-  <script src="assets/js/auth.js" defer></script>
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts/fonts.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="js/config.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/theme.js"></script>
 </head>
-<body>
-<a class="wr-skip" href="#auth-card">رفتن به فرم ورود</a>
-<div class="auth">
-  <aside class="auth-art" aria-label="معرفی وب‌ریک">
-    <div class="wr-tiles" data-tiles="120" aria-hidden="true"></div>
-    <div class="auth-art-inner">
-      <span class="auth-star" data-mark aria-hidden="true"></span>
-      <p class="auth-word" data-brand>وب‌ریک</p>
-      <p class="auth-tagline" data-tagline>درِ ورود سایت شما، به ظرافت کاشی.</p>
-      <ul class="auth-facts">
-        <li><span data-icon="mail"></span>ورود با ایمیل یا موبایل</li>
-        <li><span data-icon="key"></span>بازیابی رمز با کد یک‌بارمصرف</li>
-        <li><span data-icon="shield"></span>اعتبارسنجی زنده فرم</li>
-      </ul>
+<body data-page="login" data-title="ورود">
+<a class="skip-link" href="#main">پرش به فرم</a>
+<div class="auth-page">
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="وب‌ریک، صفحه معرفی">
+      <span class="brand-mark" data-brand-mark aria-hidden="true"><svg class="" aria-hidden="true"><use href="#i-logo"/></svg></span>
+      <span class="brand-text"><span class="brand-name" data-brand="name">Webric</span><span class="brand-sep" aria-hidden="true">|</span><span class="brand-fa" data-brand="nameFa">وب‌ریک</span></span>
+    </a>
+    <div class="topbar-actions">
+      <a class="btn btn-quiet btn-sm btn-home" href="index.html"><svg class="icon" aria-hidden="true"><use href="#i-home"/></svg><span>معرفی قالب</span></a>
+      <button class="btn btn-ghost btn-icon theme-toggle" type="button" data-theme-toggle aria-pressed="true" aria-label="تغییر تم"><svg class="icon i-sun" aria-hidden="true"><use href="#i-sun"/></svg><svg class="icon i-moon" aria-hidden="true"><use href="#i-moon"/></svg></button>
     </div>
-  </aside>
-
-  <main class="auth-main">
-    <header class="auth-top">
-      <a class="wr-logo" href="index.html" aria-label="صفحه اصلی"><span data-mark></span><span data-brand>وب‌ریک</span></a>
-      <div class="auth-top-actions">
-        <a class="wr-btn wr-btn--ghost wr-btn--icon" href="index.html" aria-label="صفحه اصلی" title="صفحه اصلی"><span data-icon="home"></span></a>
-        <button class="wr-btn wr-btn--ghost wr-btn--icon wr-mode-btn" type="button" data-mode-toggle aria-label="تغییر حالت نمایش">
-            <span class="when-dark" data-icon="sun"></span><span class="when-light" data-icon="moon"></span>
+  </header>
+  <main id="main" class="auth-main">
+    <div class="auth-wrap">
+      <section class="auth-card glass glass-edge glass-sheen rise" aria-labelledby="page-title">
+        <div class="demo-ribbon" data-demo-ribbon hidden><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg><span><strong>نسخه نمایشی.</strong> این فرم به سرور وصل نیست؛ چیزی ارسال یا ذخیره نمی‌شود.</span></div>
+        <header class="auth-head">
+          <h1 id="page-title" data-text="loginTitle">خوش برگشتی</h1>
+          <p data-text="loginSubtitle">برای ادامه، وارد حساب کاربری خود شوید.</p>
+        </header>
+        <div class="mode-switch" data-otp-switch hidden>
+          <div class="segmented" role="radiogroup" aria-label="روش ورود">
+            <label><input type="radio" name="login-mode" value="password" checked><span><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg>رمز عبور</span></label>
+            <label><input type="radio" name="login-mode" value="otp"><span><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>کد پیامکی</span></label>
+          </div>
+        </div>
+        <form class="auth-form" id="login-form" novalidate>
+          <div class="field" data-field="identifier">
+            <label class="label" for="identifier">ایمیل یا شماره موبایل</label>
+            <div class="control has-ico">
+              <svg class="ico" aria-hidden="true"><use href="#i-user"/></svg>
+              <input class="input ltr" id="identifier" name="identifier" type="text" inputmode="email" autocomplete="username" autocapitalize="none" spellcheck="false" maxlength="254" placeholder="name@example.com یا ۰۹۱۲۳۴۵۶۷۸۹" aria-describedby="identifier-err" required>
+            </div>
+            <p class="field-error" id="identifier-err"></p>
+          </div>
+          <div class="field" data-field="password">
+            <div class="row-between">
+              <label class="label" for="password">رمز عبور</label>
+              <a class="link-quiet" href="reset-password.html" data-forgot>رمز را فراموش کرده‌اید؟</a>
+            </div>
+            <div class="control has-ico has-action">
+              <svg class="ico" aria-hidden="true"><use href="#i-lock"/></svg>
+              <input class="input ltr" id="password" name="password" type="password" autocomplete="current-password" maxlength="128" placeholder="رمز عبور" aria-describedby="password-err" required>
+              <button class="input-action" type="button" data-reveal="password" aria-controls="password" aria-pressed="false" aria-label="نمایش رمز عبور"><svg class="icon i-eye" aria-hidden="true"><use href="#i-eye"/></svg><svg class="icon i-eye-off" aria-hidden="true"><use href="#i-eye-off"/></svg></button>
+            </div>
+            <p class="field-error" id="password-err"></p>
+          </div>
+          <div class="field" data-remember>
+            <label class="check"><input type="checkbox" name="remember" id="remember" aria-describedby="remember-hint"><span data-text="rememberLabel">مرا به خاطر بسپار</span></label>
+            <p class="field-hint" id="remember-hint" data-text="rememberHint"></p>
+          </div>
+          <p class="field-hint" data-attempt-limit hidden></p>
+          <div class="form-status" data-status role="status" aria-live="polite"></div>
+          <button class="btn btn-primary btn-block btn-lg" type="submit" data-submit>
+            <span class="btn-spinner" aria-hidden="true"></span><svg class="icon btn-state-icon ok" aria-hidden="true"><use href="#i-check"/></svg><svg class="icon btn-state-icon fail" aria-hidden="true"><use href="#i-x"/></svg>
+            <span class="btn-label" data-text="loginButton">ورود به حساب</span>
           </button>
-      </div>
-    </header>
-
-    <div class="auth-center">
-      <!-- Sign in / Sign up -->
-      <section class="auth-card" id="auth-card" data-view="forms" aria-labelledby="authTitle">
-        <h1 id="authTitle" data-title>خوش آمدید</h1>
-        <p class="auth-sub" data-subtitle>وارد حساب خود شوید یا در کمتر از یک دقیقه حساب بسازید.</p>
-
-        <div class="auth-tabs" role="tablist" aria-label="نوع فرم" data-active="login">
-          <span class="auth-tab-ind" aria-hidden="true"></span>
-          <button class="auth-tab" type="button" role="tab" id="tab-login" aria-selected="true" aria-controls="loginForm" data-tab="login">ورود</button>
-          <button class="auth-tab" type="button" role="tab" id="tab-register" aria-selected="false" aria-controls="registerForm" data-tab="register" tabindex="-1">ثبت‌نام</button>
-        </div>
-
-        <!-- Login form -->
-        <form class="auth-form" id="loginForm" role="tabpanel" aria-labelledby="tab-login" novalidate autocomplete="on">
-          <div class="auth-alert" data-alert hidden role="alert"><span data-icon="alert"></span><span data-alert-text></span></div>
-
-          <div class="wr-field" data-rule="identity">
-            <label class="wr-label" for="loginIdentity"><span>ایمیل یا شماره موبایل</span></label>
-            <div class="wr-control">
-              <span class="wr-ico" data-icon="user"></span>
-              <input class="wr-input wr-ltr" id="loginIdentity" name="identity" type="text" inputmode="email" autocomplete="username" placeholder="name@example.com" required>
-              <span class="wr-state" data-icon="check"></span>
-            </div>
-            <p class="wr-msg" data-msg aria-live="polite"></p>
-          </div>
-
-          <div class="wr-field" data-rule="loginPassword">
-            <label class="wr-label" for="loginPassword"><span>رمز عبور</span><a href="reset-password.html">فراموش کردید؟</a></label>
-            <div class="wr-control has-end">
-              <span class="wr-ico" data-icon="lock"></span>
-              <input class="wr-input wr-ltr" id="loginPassword" name="password" type="password" autocomplete="current-password" placeholder="••••••••" required>
-              <button class="wr-input-end" type="button" data-reveal aria-label="نمایش رمز" aria-pressed="false"><span data-icon="eye"></span></button>
-            </div>
-            <p class="wr-msg" data-msg aria-live="polite"></p>
-          </div>
-
-          <div class="auth-row" data-remember-row>
-            <label class="wr-check"><input type="checkbox" name="remember" checked><span class="box" data-icon="check"></span>مرا به خاطر بسپار</label>
-          </div>
-
-          <button class="wr-btn wr-btn--primary wr-btn--block" type="submit">ورود به حساب</button>
         </form>
-
-        <!-- Register form: fields are rendered from admin settings -->
-        <form class="auth-form" id="registerForm" role="tabpanel" aria-labelledby="tab-register" novalidate autocomplete="on" hidden>
-          <div class="auth-alert" data-alert hidden role="alert"><span data-icon="alert"></span><span data-alert-text></span></div>
-          <div class="auth-form" data-register-fields></div>
-          <label class="wr-check auth-terms"><input type="checkbox" name="terms" required><span class="box" data-icon="check"></span><span>با <a href="#" data-soon>قوانین و حریم خصوصی</a> موافقم.</span></label>
-          <button class="wr-btn wr-btn--primary wr-btn--block" type="submit">ساخت حساب</button>
-        </form>
-
-        <div data-social-wrap>
-          <div class="auth-divider"><span>یا ادامه با</span></div>
-          <div class="auth-social" data-social>
-            <button class="wr-btn" type="button" data-provider="google"><span data-icon="google"></span><span class="lbl">گوگل</span></button>
-            <button class="wr-btn" type="button" data-provider="apple"><span data-icon="apple"></span><span class="lbl">اپل</span></button>
-            <button class="wr-btn" type="button" data-provider="github"><span data-icon="github"></span><span class="lbl">گیت‌هاب</span></button>
-          </div>
+        <div class="social-wrap" data-social hidden>
+          <p class="divider-text" style="margin-block:var(--s6) var(--s4)">یا ادامه با</p>
+          <div class="social" data-social-list></div>
         </div>
-
-        <button class="auth-demo" type="button" data-demo-fill>
-          <span data-icon="sparkle"></span>
-          <span>حساب نمایشی: <b class="wr-ltr">demo@webric.ir</b> — رمز <b class="wr-ltr">Webric@1234</b></span>
-        </button>
+        <p class="auth-alt" data-register-link>حساب کاربری ندارید؟<a class="link" href="register.html">ثبت‌نام کنید</a></p>
+        <p class="auth-alt" data-register-closed hidden>ثبت‌نام کاربر جدید فعلاً بسته است.</p>
       </section>
-
-      <!-- Signed-in view -->
-      <section class="auth-card auth-done" data-view="done" hidden aria-live="polite">
-        <div class="auth-done-mark" data-mark aria-hidden="true"></div>
-        <h1 data-done-title>خوش آمدید</h1>
-        <p class="auth-sub" data-done-text>با موفقیت وارد شدید.</p>
-        <dl class="auth-done-meta">
-          <div><dt>حساب</dt><dd class="wr-ltr" data-done-id></dd></div>
-          <div><dt>زمان ورود</dt><dd data-done-time></dd></div>
-        </dl>
-        <div class="auth-done-actions">
-          <a class="wr-btn wr-btn--primary" href="admin.html"><span data-icon="grid"></span>پنل مدیریت</a>
-          <button class="wr-btn" type="button" data-logout><span data-icon="logout"></span>خروج از حساب</button>
-        </div>
-      </section>
+      <p class="security-tip rise rise-3"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg><span data-text="securityTip"></span></p>
     </div>
-
-    <footer class="auth-foot">
-      <a href="docs/index.html">راهنما</a>
-      <a href="#" data-soon>قوانین و مقررات</a>
-      <a href="#" data-soon>حریم خصوصی</a>
-      <span>© <span data-year>۱۴۰۵</span> <span data-brand>وب‌ریک</span></span>
-    </footer>
+    <aside class="auth-aside" aria-label="درباره وب‌ریک">
+      <h2>ورود <em>بی‌دردسر</em>،<br>امنیت بی‌تعارف.</h2>
+      <p data-brand="tagline">احراز هویت شیشه‌ای و راست‌چین</p>
+      <ul class="aside-points">
+        <li><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg>اعتبارسنجی فارسی و دقیق در کنار هر فیلد</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-palette"/></svg>تم روشن و تاریک با یک لمس</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-server"/></svg>آماده اتصال به بک‌اند با کوکی امن</li>
+      </ul>
+    </aside>
   </main>
+  <footer class="auth-foot"><p data-text="footer">© وب‌ریک</p></footer>
 </div>
+<div class="toast-stack" data-toasts aria-live="polite"></div>
+  <script src="js/icons.js" defer></script>
+  <script src="js/validation.js" defer></script>
+  <script src="js/api.js" defer></script>
+  <script src="js/auth-ui.js" defer></script>
 </body>
 </html>

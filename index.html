@@ -1,59 +1,136 @@
 <!doctype html>
-<html lang="fa" dir="rtl" data-theme="lapis" data-mode="dark">
+<html lang="fa" dir="rtl" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="نمایش تم‌های قالب ورود و ثبت‌نام وب‌ریک، راست‌چین و واکنش‌گرا">
-  <meta name="theme-color" content="#0c1430">
+  <title>صفحه اصلی | وب‌ریک</title>
+  <meta name="description" content="وب‌ریک: قالب احراز هویت فارسی، راست‌چین و قابل تنظیم با پنل مدیریت زنده">
+  <meta name="theme-color" content="#070a17">
   <meta name="color-scheme" content="dark light">
-  <title>وب‌ریک | قالب ورود و ثبت‌نام راست‌چین</title>
-  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="preload" href="assets/fonts/vazirmatn-var.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/webric.css">
-  <link rel="stylesheet" href="assets/css/auth.css">
-  <script src="assets/js/core.js"></script>
-  <script src="assets/js/index.js" defer></script>
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts/fonts.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="js/config.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/theme.js"></script>
 </head>
-<body>
-<div class="auth" style="grid-template-columns:1fr;min-height:100dvh">
-  <main class="auth-main" style="padding-top:clamp(28px,6vh,64px)">
-    <header class="auth-top">
-      <a class="wr-logo" href="index.html"><span data-mark></span><span data-brand>وب‌ریک</span></a>
-      <div class="auth-top-actions"><button class="wr-btn wr-btn--ghost wr-btn--icon wr-mode-btn" type="button" data-mode-toggle aria-label="تغییر حالت نمایش"><span class="when-dark" data-icon="sun"></span><span class="when-light" data-icon="moon"></span></button></div>
-    </header>
-    <div class="auth-center" style="place-items:start center">
-      <section class="index-wrap auth-card" style="max-width:920px;animation:none">
-        <p class="kicker">قالب آماده ورود، ثبت‌نام و پنل مدیریت</p>
-        <h1 class="index-title">تم خود را انتخاب کنید</h1>
-        <p class="auth-sub">هر تم یک فرم کامل است. تنظیمات را در پنل مدیریت تغییر دهید؛ همه صفحات همان‌جا به‌روز می‌شوند.</p>
-        <div class="theme-grid">
-        <a class="theme-card" href="login.html">
-          <span class="theme-sw"><i style="background:#13306f"></i><i style="background:#1d4497"></i><i style="background:#d4651c"></i><i style="background:#8cc8bc"></i></span>
-          <h2>لاجورد</h2><p>بنفش‌آبی سنتی، با گرمای نارنجی روی دکمه</p>
-        </a>
-        <a class="theme-card" href="login-midnight.html">
-          <span class="theme-sw"><i style="background:#0a1626"></i><i style="background:#5773c0"></i><i style="background:#8cc8bc"></i><i style="background:#e9e4d8"></i></span>
-          <h2>شب</h2><p>آبی شب با فیروزه‌ای روشن</p>
-        </a>
-        <a class="theme-card" href="login-saffron.html">
-          <span class="theme-sw"><i style="background:#5a1d0e"></i><i style="background:#b83326"></i><i style="background:#e8823f"></i><i style="background:#f1c27d"></i></span>
-          <h2>زعفران</h2><p>قرمز و زعفرانی، گرم‌تر</p>
-        </a>
-        <a class="theme-card" href="login-light.html">
-          <span class="theme-sw"><i style="background:#f8f6f1"></i><i style="background:#1d4497"></i><i style="background:#d4651c"></i><i style="background:#8cc8bc"></i></span>
-          <h2>روشن</h2><p>نسخه روشن از لاجورد</p>
-        </a>
-        </div>
-        <div class="index-links">
-          <a class="wr-btn wr-btn--primary" href="login.html"><span data-icon="arrow-left"></span>شروع با فرم ورود</a>
-          <a class="wr-btn" href="admin.html"><span data-icon="settings"></span>پنل مدیریت</a>
-          <a class="wr-btn" href="reset-password.html"><span data-icon="key"></span>بازیابی رمز</a>
-          <a class="wr-btn wr-btn--ghost" href="docs/index.html"><span data-icon="file"></span>راهنما</a>
-        </div>
-      </section>
+<body data-page="index" data-title="معرفی">
+<a class="skip-link" href="#main">پرش به محتوا</a>
+<div class="landing">
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="وب‌ریک، صفحه معرفی">
+      <span class="brand-mark" data-brand-mark aria-hidden="true"><svg class="" aria-hidden="true"><use href="#i-logo"/></svg></span>
+      <span class="brand-text"><span class="brand-name" data-brand="name">Webric</span><span class="brand-sep" aria-hidden="true">|</span><span class="brand-fa" data-brand="nameFa">وب‌ریک</span></span>
+    </a>
+    <div class="topbar-actions">
+      <a class="btn btn-quiet btn-sm btn-home" href="index.html"><svg class="icon" aria-hidden="true"><use href="#i-home"/></svg><span>معرفی قالب</span></a>
+      <button class="btn btn-ghost btn-icon theme-toggle" type="button" data-theme-toggle aria-pressed="true" aria-label="تغییر تم"><svg class="icon i-sun" aria-hidden="true"><use href="#i-sun"/></svg><svg class="icon i-moon" aria-hidden="true"><use href="#i-moon"/></svg></button>
     </div>
-    <footer class="auth-foot"><span>© <span data-year>۱۴۰۵</span> <span data-brand>وب‌ریک</span> — نسخه ۴٫۰</span></footer>
+  </header>
+  <main id="main">
+    <section class="hero">
+      <div class="hero-copy rise">
+        <p class="eyebrow-chip badge badge-ready badge-plain">قالب احراز هویت فارسی · نسخه 1.0.0</p>
+        <h1 style="margin-top:var(--s4)">ورود و ثبت‌نام <em>شیشه‌ای</em>،<br>آماده برای برند شما.</h1>
+        <p class="lead" data-brand="tagline">احراز هویت شیشه‌ای و راست‌چین</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary btn-lg" href="login.html"><svg class="icon" aria-hidden="true"><use href="#i-login"/></svg><span>دیدن صفحه ورود</span></a>
+          <a class="btn btn-ghost btn-lg" href="register.html"><svg class="icon" aria-hidden="true"><use href="#i-user-plus"/></svg><span>صفحه ثبت‌نام</span></a>
+        </div>
+        <div class="hero-meta">
+          <span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>بدون وابستگی خارجی</span>
+          <span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>تم روشن و تاریک</span>
+          <span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>پنل تنظیمات زنده</span>
+        </div>
+      </div>
+      <div class="mock-stack rise rise-2" aria-hidden="true">
+        <div class="mock-card glass glass-edge glass-sheen">
+          <div class="auth-head"><h2 style="font-size:1.4rem;font-weight:800">خوش برگشتی</h2><p style="color:var(--text-muted);font-size:var(--fs-sm)">برای ادامه، وارد حساب شوید.</p></div>
+          <div class="field"><span class="label">ایمیل یا شماره موبایل</span><div class="control has-ico"><span class="input ltr" style="display:block;color:var(--text-subtle)">name@example.com</span></div></div>
+          <div style="height:12px"></div>
+          <span class="btn btn-primary btn-block">ورود به حساب</span>
+        </div>
+        <div class="mock-card glass glass-edge">
+          <p class="badge badge-connected">متصل</p>
+          <p style="margin-top:10px;font-weight:700">تم: <span data-mock-theme>تاریک</span></p>
+          <p style="color:var(--text-muted);font-size:var(--fs-sm)">تغییرات پنل تنظیمات همه صفحات را همزمان عوض می‌کند.</p>
+        </div>
+      </div>
+    </section>
+    <section class="section-title"><h2>چه چیزی داخل این قالب است؟</h2><p>امکاناتی که واقعاً کار می‌کنند؛ جاهایی که به سرور نیاز دارند، صریحاً مشخص شده‌اند.</p></section>
+    <section class="features" aria-label="امکانات">
+    <article class="feature glass glass-edge rise rise-2">
+      <span class="fi"><svg class="icon" aria-hidden="true"><use href="#i-user-plus"/></svg></span>
+      <h3>ثبت‌نام قابل تنظیم</h3>
+      <p>فیلدها را روشن و خاموش کنید، ترتیبشان را عوض کنید و ضروری بودن هرکدام را تعیین کنید.</p>
+    </article>
+    <article class="feature glass glass-edge rise rise-3">
+      <span class="fi"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg></span>
+      <h3>اعتبارسنجی فارسی</h3>
+      <p>ارقام فارسی و عربی، شماره موبایل، کد ملی و تاریخ شمسی را درست می‌فهمد و پیام خطای فارسی می‌دهد.</p>
+    </article>
+    <article class="feature glass glass-edge rise rise-4">
+      <span class="fi"><svg class="icon" aria-hidden="true"><use href="#i-key"/></svg></span>
+      <h3>بازیابی رمز مرحله‌به‌مرحله</h3>
+      <p>شناسه، کد، رمز جدید و نتیجه؛ هر مرحله جدا و با نوار پیشرفت.</p>
+    </article>
+    <article class="feature glass glass-edge rise rise-2">
+      <span class="fi"><svg class="icon" aria-hidden="true"><use href="#i-palette"/></svg></span>
+      <h3>تم روشن و تاریک واقعی</h3>
+      <p>هر دو تم کامل‌اند؛ تغییر تم روی همه صفحات یکجا اعمال می‌شود.</p>
+    </article>
+    <article class="feature glass glass-edge rise rise-3">
+      <span class="fi"><svg class="icon" aria-hidden="true"><use href="#i-sliders"/></svg></span>
+      <h3>پنل تنظیمات زنده</h3>
+      <p>رنگ، شیشه، سایه، متن و قوانین را تغییر دهید و نتیجه را همان لحظه ببینید.</p>
+    </article>
+    <article class="feature glass glass-edge rise rise-4">
+      <span class="fi"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg></span>
+      <h3>بدون وابستگی خارجی</h3>
+      <p>فقط HTML، CSS و JavaScript ساده؛ بدون کتابخانه و بدون CDN. آماده GitHub Pages.</p>
+    </article>
+    <article class="feature glass glass-edge rise rise-2">
+      <span class="fi"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg></span>
+      <h3>واکنش‌گرا و لمسی</h3>
+      <p>از ۳۲۰ تا ۱۴۴۰ پیکسل؛ دکمه‌های لمسی، منوی کشویی و بدون اسکرول افقی.</p>
+    </article>
+    <article class="feature glass glass-edge rise rise-3">
+      <span class="fi"><svg class="icon" aria-hidden="true"><use href="#i-server"/></svg></span>
+      <h3>آماده بک‌اند</h3>
+      <p>آدرس API را وارد کنید تا فرم‌ها به سرور واقعی وصل شوند؛ تا آن موقع همه‌چیز نمایشی و برچسب‌دار است.</p>
+    </article>
+    <article class="feature glass glass-edge rise rise-4">
+      <span class="fi"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg></span>
+      <h3>کد تمیز و ماژولار</h3>
+      <p>تنظیمات، اعتبارسنجی، تم، API و UI در فایل‌های جدا با توضیح کامل.</p>
+    </article>
+    </section>
+    <section class="section-title" style="margin-top:var(--s6)"><h2>صفحات قالب</h2><p>همه صفحات با هم هماهنگ‌اند و لینک‌ها به فایل‌های موجود اشاره می‌کنند.</p></section>
+    <section class="demo-grid" aria-label="صفحات">
+      <a class="demo-tile glass glass-edge" href="login.html"><h3>ورود <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-left"/></svg></h3><p>ایمیل یا موبایل، رمز، مرا به خاطر بسپار و دکمه‌های وضعیت.</p></a>
+      <a class="demo-tile glass glass-edge" href="register.html"><h3>ثبت‌نام <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-left"/></svg></h3><p>فیلدهای فعال از تنظیمات، قدرت رمز و اعتبارسنجی فارسی.</p></a>
+      <a class="demo-tile glass glass-edge" href="reset-password.html"><h3>بازیابی رمز <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-left"/></svg></h3><p>شناسه، کد، تعیین رمز جدید و نتیجه.</p></a>
+      <a class="demo-tile glass glass-edge" href="demo.html"><h3>نمونه‌ها و امکانات <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-left"/></svg></h3><p>تم، روش‌ها و وضعیت پیکربندی فعلی.</p></a>
+      <a class="demo-tile glass glass-edge" href="admin.html"><h3>پنل تنظیمات <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-left"/></svg></h3><p>پنل دمو و تنظیمات محلی؛ بدون احراز هویت. پیش از انتشار عمومی حذف یا محافظت شود.</p></a>
+    </section>
   </main>
+  <footer class="landing-foot"><p data-text="footer">© وب‌ریک</p><p style="margin-top:6px"><a class="link-quiet" href="README.md">راهنمای نصب و سفارشی‌سازی</a> · <a class="link-quiet" href="LICENSE.txt">لایسنس</a></p></footer>
 </div>
+<div class="toast-stack" data-toasts aria-live="polite"></div>
+  <script src="js/icons.js" defer></script>
+  <script src="js/validation.js" defer></script>
+  <script src="js/api.js" defer></script>
+  <script src="js/auth-ui.js" defer></script>
+  <script>
+    document.addEventListener('webric:config', function () {
+      var el = document.querySelector('[data-mock-theme]');
+      if (el) el.textContent = document.documentElement.dataset.theme === 'dark' ? 'تاریک' : 'روشن';
+    });
+  </script>
 </body>
 </html>

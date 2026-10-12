@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>تأیید کد | وب‌ریک</title>
+  <meta name="description" content="تأیید کد یکبارمصرف وب‌ریک">
+  <meta name="theme-color" content="#070a17">
+  <meta name="color-scheme" content="dark light">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts/fonts.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="js/config.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/theme.js"></script>
+</head>
+<body data-page="verify" data-title="تأیید کد">
+<a class="skip-link" href="#main">پرش به فرم</a>
+<div class="auth-page">
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="وب‌ریک، صفحه معرفی">
+      <span class="brand-mark" data-brand-mark aria-hidden="true"><svg class="" aria-hidden="true"><use href="#i-logo"/></svg></span>
+      <span class="brand-text"><span class="brand-name" data-brand="name">Webric</span><span class="brand-sep" aria-hidden="true">|</span><span class="brand-fa" data-brand="nameFa">وب‌ریک</span></span>
+    </a>
+    <div class="topbar-actions">
+      <a class="btn btn-quiet btn-sm btn-home" href="index.html"><svg class="icon" aria-hidden="true"><use href="#i-home"/></svg><span>معرفی قالب</span></a>
+      <button class="btn btn-ghost btn-icon theme-toggle" type="button" data-theme-toggle aria-pressed="true" aria-label="تغییر تم"><svg class="icon i-sun" aria-hidden="true"><use href="#i-sun"/></svg><svg class="icon i-moon" aria-hidden="true"><use href="#i-moon"/></svg></button>
+    </div>
+  </header>
+  <main id="main" class="auth-main">
+    <div class="auth-wrap">
+      <section class="auth-card glass glass-edge glass-sheen rise" aria-labelledby="page-title">
+        <div class="demo-ribbon" data-demo-ribbon hidden><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg><span><strong>نسخه نمایشی.</strong> این فرم به سرور وصل نیست؛ چیزی ارسال یا ذخیره نمی‌شود.</span></div>
+        <div data-verify-body hidden>
+          <ol class="stepper" aria-label="مراحل بازیابی رمز">
+          <li>شناسه</li><li>تأیید کد</li><li>رمز جدید</li><li>نتیجه</li>
+        </ol>
+          <header class="auth-head">
+            <h1 id="page-title" data-text="verifyTitle">تأیید کد</h1>
+            <p><span data-text="verifySubtitle">کد ارسال‌شده را وارد کنید.</span> <span class="identifier-chip" data-identifier></span></p>
+          </header>
+          <form class="auth-form" id="verify-form" novalidate>
+            <div class="field">
+              <label class="label" for="code">کد تأیید</label>
+              <input class="input code" id="code" name="code" type="text" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]*" maxlength="6" aria-describedby="code-err" required>
+              <p class="field-error" id="code-err"></p>
+            </div>
+            <div class="row-between">
+              <span class="timer" data-timer aria-live="off"></span>
+              <button class="btn btn-quiet btn-sm" type="button" data-resend disabled><svg class="icon" aria-hidden="true"><use href="#i-refresh"/></svg>ارسال دوباره کد</button>
+            </div>
+            <div class="form-status" data-status role="status" aria-live="polite"></div>
+            <button class="btn btn-primary btn-block btn-lg" type="submit" data-submit>
+            <span class="btn-spinner" aria-hidden="true"></span><svg class="icon btn-state-icon ok" aria-hidden="true"><use href="#i-check"/></svg><svg class="icon btn-state-icon fail" aria-hidden="true"><use href="#i-x"/></svg>
+            <span class="btn-label" data-text="verifyButton">تأیید و ادامه</span>
+          </button>
+          </form>
+          <p class="auth-alt">شناسه اشتباه است؟<a class="link" href="reset-password.html" data-back>تغییر شناسه</a></p>
+        </div>
+        <div class="result" data-no-flow hidden>
+          <div class="result-icon demo"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg></div>
+          <h2 id="page-title-alt">هنوز کدی درخواست نشده</h2>
+          <p>برای رسیدن به این مرحله، ابتدا از صفحه بازیابی رمز درخواست کد بدهید.</p>
+          <a class="btn btn-primary" href="reset-password.html">رفتن به بازیابی رمز<svg class="icon" aria-hidden="true"><use href="#i-arrow-left"/></svg></a>
+          <a class="link-quiet" href="login.html">بازگشت به ورود</a>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer class="auth-foot"><p data-text="footer">© وب‌ریک</p></footer>
+</div>
+<div class="toast-stack" data-toasts aria-live="polite"></div>
+  <script src="js/icons.js" defer></script>
+  <script src="js/validation.js" defer></script>
+  <script src="js/api.js" defer></script>
+  <script src="js/auth-ui.js" defer></script>
+</body>
+</html>
