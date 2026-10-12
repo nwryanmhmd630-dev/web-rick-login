@@ -1,0 +1,13 @@
+WEBRIC RTL Auth & Admin Template v4.0 : third-party licenses
+
+Vazirmatn (assets/fonts/vazirmatn-var.woff2)
+  Copyright 2015 The Vazirmatn Project Authors. SIL Open Font License 1.1.
+
+Reem Kufi (assets/fonts/reem-kufi-var.woff2)
+  Copyright 2015-2022 The Reem Kufi Project Authors. SIL Open Font License 1.1.
+
+Icons, logo mark, khatam pattern, Google/Apple/GitHub brand glyphs
+  Drawn for this template. Brand logos are trademarks of their owners and are
+  used only to label sign-in buttons.
+
+The OFL text: https://openfontlicense.org

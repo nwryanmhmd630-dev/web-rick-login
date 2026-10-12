@@ -1,26 +1,6 @@
-# WEBRIC RTL Auth & Admin Template v3.0
+# WEBRIC RTL Auth & Admin Template v4.0
 
-قالب HTML راست‌چین و واکنش‌گرا برای موبایل، تبلت و دسکتاپ.
+Start: open `index.html`, or serve the folder with any static server.
 
-## شروع سریع
-
-۱. این پوشه را Extract کنید.
-۲. فایل `index.html` را در مرورگر باز کنید (یا روی یک وب‌سرور اجرا کنید).
-۳. صفحات تم‌های مختلف را از `index.html` بررسی کنید.
-
-## فایل‌های اصلی
-
-- `index.html` — صفحه نمایشگر تم‌ها
-- `login.html` — تم کلاسیک (بنفش)
-- `login-dark.html` — تم نیمه‌شب (آبی)
-- `login-light-2.html` — تم روشن (سفید-کرم)
-- `login-galaxy.html` — تم کهکشانی (بنفش-فیروزه‌ای)
-- `reset-password.html` — بازیابی رمز V۲ (۳ مرحله‌ای)
-- `admin.html` — پنل مدیریت
-- `admin-2.html` — پنل مدیریت پیشرفته
-
-## مستندات
-
-برای اطلاعات کامل به `docs/README.md` مراجعه کنید.
-
-© وب‌ریک — قالب RTL حرفه‌ای ورود و ثبت‌نام — نسخه ۳.۰
+Pages: `login.html` (لاجورد), `login-midnight.html`, `login-saffron.html`, `login-light.html`, `reset-password.html`, `admin.html`.
+Docs: `docs/index.html`. Licenses: `LICENSES.txt`.
