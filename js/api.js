@@ -1,1 +1,0 @@
-(function(){'use strict';window.Webric=window.Webric||{};Webric.api={demo:true,request:function(){return Promise.reject(new Error('Preview only: no data is sent or saved.'))}}})();
