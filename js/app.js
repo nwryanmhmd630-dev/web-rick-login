@@ -1,0 +1,22 @@
+(() => {
+  const root=document.documentElement;
+  const configKey='webric-v4-preferences';
+  const defaults={theme:'dark',accent:'#d5f36a',radius:24,blur:18};
+  let prefs={...defaults};
+  try{prefs={...prefs,...JSON.parse(localStorage.getItem(configKey)||'{}')}}catch{}
+  const accentInk=(hex)=>{const c=hex.replace('#','');const r=parseInt(c.slice(0,2),16),g=parseInt(c.slice(2,4),16),b=parseInt(c.slice(4,6),16);return (r*.299+g*.587+b*.114)>155?'#182016':'#fff'};
+  function apply(){root.dataset.theme=prefs.theme;root.style.setProperty('--accent',prefs.accent);root.style.setProperty('--accent-ink',accentInk(prefs.accent));root.style.setProperty('--radius',prefs.radius+'px');root.style.setProperty('--blur',prefs.blur+'px');try{localStorage.setItem(configKey,JSON.stringify(prefs))}catch{};document.querySelectorAll('[data-theme-toggle]').forEach(b=>b.setAttribute('aria-label',prefs.theme==='dark'?'فعال‌کردن تم روشن':'فعال‌کردن تم تیره'));document.querySelectorAll('[data-theme-label]').forEach(x=>x.textContent=prefs.theme==='dark'?'تم تیره':'تم روشن');document.querySelectorAll('[data-accent]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.accent===prefs.accent)));document.querySelectorAll('[data-radius-output]').forEach(x=>x.textContent=prefs.radius+'px');document.querySelectorAll('[data-blur-output]').forEach(x=>x.textContent=prefs.blur+'px');}
+  apply();
+  document.addEventListener('click',e=>{
+    const theme=e.target.closest('[data-theme-toggle]');if(theme){prefs.theme=prefs.theme==='dark'?'light':'dark';apply();return}
+    const accent=e.target.closest('[data-accent]');if(accent){prefs.accent=accent.dataset.accent;apply();toast('رنگ تازه روی همه‌ی صفحه‌ها اعمال شد');return}
+    const reset=e.target.closest('[data-reset-settings]');if(reset){prefs={...defaults};apply();toast('تنظیمات به حالت اولیه برگشت');return}
+    const tab=e.target.closest('[data-tab]');if(tab){const parent=tab.closest('[data-tabs]');if(parent){parent.querySelectorAll('[data-tab]').forEach(b=>b.setAttribute('aria-selected',String(b===tab)));parent.querySelectorAll('[data-tab-panel]').forEach(p=>p.hidden=p.dataset.tabPanel!==tab.dataset.tab)}return}
+    const next=e.target.closest('[data-next-step]');if(next){const host=next.closest('[data-reset-demo]');const curr=Number(host.dataset.current||1),to=Math.min(3,curr+1);host.dataset.current=to;host.querySelectorAll('[data-demo-step]').forEach(el=>el.hidden=Number(el.dataset.demoStep)!==to);host.querySelectorAll('[data-step-marker]').forEach(el=>el.classList.toggle('active',Number(el.dataset.stepMarker)<=to));toast(to===3?'نمایش نمونه کامل شد':'به مرحله‌ی بعد رفتید');return}
+    const back=e.target.closest('[data-back-step]');if(back){const host=back.closest('[data-reset-demo]');const curr=Number(host.dataset.current||1),to=Math.max(1,curr-1);host.dataset.current=to;host.querySelectorAll('[data-demo-step]').forEach(el=>el.hidden=Number(el.dataset.demoStep)!==to);host.querySelectorAll('[data-step-marker]').forEach(el=>el.classList.toggle('active',Number(el.dataset.stepMarker)<=to));return}
+    const reveal=e.target.closest('[data-demo-notice]');if(reveal){toast(reveal.dataset.demoNotice);return}
+    const copy=e.target.closest('[data-copy-config]');if(copy){navigator.clipboard?.writeText(JSON.stringify(prefs,null,2)).then(()=>toast('تنظیمات کپی شد')).catch(()=>toast('مرورگر اجازه‌ی کپی نداد'));return}
+  });
+  document.addEventListener('input',e=>{if(e.target.matches('[data-radius]')){prefs.radius=Number(e.target.value);apply()}if(e.target.matches('[data-blur]')){prefs.blur=Number(e.target.value);apply()}});
+  let timer;function toast(text){let el=document.querySelector('.toast');if(!el){el=document.createElement('div');el.className='toast';el.setAttribute('role','status');el.setAttribute('aria-live','polite');document.body.appendChild(el)}el.textContent=text;el.classList.add('show');clearTimeout(timer);timer=setTimeout(()=>el.classList.remove('show'),2300)}
+})();
