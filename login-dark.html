@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="fa" dir="rtl" class="dark" data-theme="midnight">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#020617">
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="صفحه ورود و ثبت‌نام وب‌ریک — تم نیمه‌شب">
+  <title>وب‌ریک | ورود و ثبت‌نام — تم تاریک</title>
+  <link rel="stylesheet" href="css/auth.css">
+  <script src="js/icons.js"></script>
+  <script src="js/auth-theme.js"></script>
+  <script src="js/auth.js" defer></script>
+</head>
+<body>
+  <div class="wr-page">
+    <!-- Aurora animated background -->
+    <div class="wr-aurora" aria-hidden="true"><span></span></div>
+
+    <!-- Theme toggle (top-left fixed) -->
+    <div class="wr-theme">
+      <button type="button" data-theme-toggle aria-label="تغییر حالت نمایش" class="wr-theme-btn">
+        <span data-icon="sun" aria-hidden="true"></span>
+        <span class="wr-theme-text">حالت روشن</span>
+      </button>
+    </div>
+
+    <main class="wr-card" aria-label="فرم احراز هویت وب‌ریک">
+      <header class="wr-head">
+        <div class="wr-brand" data-brand>وب‌ریک</div>
+        <h1 class="wr-title" data-title>خوش آمدید</h1>
+        <p class="wr-subtitle" data-subtitle>ورود امن یا ساخت حساب جدید</p>
+      </header>
+
+      <nav class="wr-tabs" role="tablist" aria-label="انتخاب فرم" data-active="login">
+        <button class="wr-tab active" type="button" data-tab="login" role="tab" aria-selected="true" aria-controls="loginForm">ورود به حساب</button>
+        <button class="wr-tab" type="button" data-tab="register" role="tab" aria-selected="false" aria-controls="registerForm">ثبت‌نام جدید</button>
+      </nav>
+
+      <!-- Login Form -->
+      <form id="loginForm" class="wr-form active" novalidate aria-hidden="false" autocomplete="on">
+        <div class="wr-field">
+          <label class="wr-label" for="loginIdentity">
+            <span>ایمیل یا شماره موبایل</span>
+            <span class="wr-req" aria-hidden="true">*</span>
+          </label>
+          <div class="wr-input-wrap">
+            <span class="wr-input-icon" data-icon="user" aria-hidden="true"></span>
+            <input class="wr-input wr-ltr" id="loginIdentity" name="identity" type="text"
+                   autocomplete="username" inputmode="text"
+                   placeholder="name@example.com یا 0912..." required>
+          </div>
+        </div>
+
+        <div class="wr-field wr-password">
+          <label class="wr-label" for="loginPassword">
+            <span>رمز عبور</span>
+            <span class="wr-req" aria-hidden="true">*</span>
+          </label>
+          <div class="wr-input-wrap">
+            <span class="wr-input-icon" data-icon="lock" aria-hidden="true"></span>
+            <input class="wr-input" id="loginPassword" name="password" type="password"
+                   autocomplete="current-password" placeholder="رمز عبور" required>
+            <button class="wr-eye" type="button" data-target="loginPassword"
+                    aria-label="نمایش رمز" data-icon="eye"></button>
+          </div>
+        </div>
+
+        <div class="wr-row">
+          <label class="wr-check">
+            <input type="checkbox" name="remember">
+            <span>مرا به خاطر بسپار</span>
+          </label>
+          <a class="wr-link" href="reset-password.html" data-forgot>فراموشی رمز عبور؟</a>
+        </div>
+
+        <button class="wr-submit" type="submit">
+          <span class="wr-btn-text">ورود به حساب</span>
+        </button>
+
+        <div class="wr-divider">یا ورود با</div>
+        <div class="wr-social" aria-label="ورود اجتماعی">
+          <button class="wr-social-btn" type="button" data-provider="google" aria-label="ورود با گوگل">
+            <span data-icon="google" aria-hidden="true"></span>
+            <span class="wr-social-text">Google</span>
+          </button>
+          <button class="wr-social-btn" type="button" data-provider="apple" aria-label="ورود با اپل">
+            <span data-icon="apple" aria-hidden="true"></span>
+            <span class="wr-social-text">Apple</span>
+          </button>
+          <button class="wr-social-btn" type="button" data-provider="github" aria-label="ورود با گیت‌هاب">
+            <span data-icon="github" aria-hidden="true"></span>
+            <span class="wr-social-text">GitHub</span>
+          </button>
+        </div>
+      </form>
+
+      <!-- Register Form -->
+      <form id="registerForm" class="wr-form" hidden novalidate aria-hidden="true" autocomplete="on">
+        <div id="registerFields">
+          <div class="wr-field" data-field="full_name">
+            <label class="wr-label" for="fullName">
+              <span>نام و نام خانوادگی</span>
+              <span class="wr-req" aria-hidden="true">*</span>
+            </label>
+            <div class="wr-input-wrap">
+              <span class="wr-input-icon" data-icon="user" aria-hidden="true"></span>
+              <input class="wr-input" id="fullName" name="full_name" type="text"
+                     autocomplete="name" placeholder="نام شما">
+            </div>
+          </div>
+
+          <div class="wr-field" data-field="email">
+            <label class="wr-label" for="regEmail">
+              <span>ایمیل</span>
+              <span class="wr-req" aria-hidden="true">*</span>
+            </label>
+            <div class="wr-input-wrap">
+              <span class="wr-input-icon" data-icon="mail" aria-hidden="true"></span>
+              <input class="wr-input wr-ltr" id="regEmail" name="email" type="email"
+                     autocomplete="email" inputmode="email"
+                     placeholder="name@example.com">
+            </div>
+          </div>
+
+          <div class="wr-field" data-field="phone_number">
+            <label class="wr-label" for="phone">
+              <span>شماره موبایل</span>
+            </label>
+            <div class="wr-input-wrap">
+              <span class="wr-input-icon" data-icon="phone" aria-hidden="true"></span>
+              <input class="wr-input wr-ltr" id="phone" name="phone_number" type="tel"
+                     inputmode="tel" autocomplete="tel" placeholder="0912...">
+            </div>
+          </div>
+
+          <div class="wr-field wr-password" data-field="password">
+            <label class="wr-label" for="regPassword">
+              <span>رمز عبور</span>
+              <span class="wr-req" aria-hidden="true">*</span>
+            </label>
+            <div class="wr-input-wrap">
+              <span class="wr-input-icon" data-icon="lock" aria-hidden="true"></span>
+              <input class="wr-input" id="regPassword" name="password" type="password"
+                     autocomplete="new-password" placeholder="حداقل ۸ نویسه">
+              <button class="wr-eye" type="button" data-target="regPassword"
+                      aria-label="نمایش رمز" data-icon="eye"></button>
+            </div>
+          </div>
+
+          <div class="wr-field wr-password" data-field="password_confirm">
+            <label class="wr-label" for="regPassword2">
+              <span>تکرار رمز عبور</span>
+              <span class="wr-req" aria-hidden="true">*</span>
+            </label>
+            <div class="wr-input-wrap">
+              <span class="wr-input-icon" data-icon="lock" aria-hidden="true"></span>
+              <input class="wr-input" id="regPassword2" name="password_confirm" type="password"
+                     autocomplete="new-password" placeholder="تکرار رمز عبور">
+              <button class="wr-eye" type="button" data-target="regPassword2"
+                      aria-label="نمایش رمز" data-icon="eye"></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="wr-row">
+          <label class="wr-check">
+            <input type="checkbox" name="terms" required>
+            <span>قوانین و مقررات را می‌پذیرم.</span>
+          </label>
+        </div>
+
+        <button class="wr-submit" type="submit">
+          <span class="wr-btn-text">ساخت حساب کاربری</span>
+        </button>
+      </form>
+
+      <footer class="wr-footer">© وب‌ریک — قالب RTL حرفه‌ای · <a href="index.html">همه تم‌ها</a></footer>
+    </main>
+
+    <div class="wr-toast" aria-live="polite" role="status"></div>
+  </div>
+</body>
+</html>
