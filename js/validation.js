@@ -1,0 +1,1 @@
+(function(){'use strict';window.Webric=window.Webric||{};Webric.validation={digits:function(s){return String(s||'').replace(/[۰-۹]/g,function(x){return String('۰۱۲۳۴۵۶۷۸۹'.indexOf(x))}).replace(/[٠-٩]/g,function(x){return String('٠١٢٣٤٥٦٧٨٩'.indexOf(x))})},email:function(s){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(s||''))}}})();

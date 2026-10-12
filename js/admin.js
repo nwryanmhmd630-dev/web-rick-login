@@ -1,0 +1,1 @@
+(function(){'use strict';var root=document.documentElement;document.addEventListener('input',function(e){if(e.target.matches('[type=color]'))root.style.setProperty('--primary',e.target.value)});document.querySelectorAll('[data-demo-ribbon]').forEach(function(e){e.hidden=false})})();
