@@ -1,1 +1,0 @@
-(function(){'use strict';window.Webric=window.Webric||{};Webric.storage={get:function(k,f){try{var v=localStorage.getItem('webric:'+k);return v===null?f:JSON.parse(v)}catch(e){return f}},set:function(k,v){try{localStorage.setItem('webric:'+k,JSON.stringify(v));return true}catch(e){return false}},remove:function(k){try{localStorage.removeItem('webric:'+k)}catch(e){}}};})();
