@@ -1,1 +1,52 @@
-<!doctype html><html lang="fa" dir="rtl" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#101b1a"><meta name="description" content="تنظیمات نمایشی ظاهر و رنگ قالب وب‌ریک."><title>شخصی‌سازی | وب‌ریک</title><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="css/site.css"><script src="js/app.js" defer></script></head><body><header class="container topbar"><a class="brand" href="index.html" aria-label="وب‌ریک، صفحه‌ی اصلی"><span class="brand-mark">و</span><span>وب‌ریک</span></a><nav class="nav" aria-label="ناوبری اصلی"><a href="index.html" >معرفی</a><a href="login.html" >ورود</a><a href="register.html" >ثبت‌نام</a><a href="reset-password.html" >بازیابی</a></nav><div class="actions"><a class="btn quiet" href="admin.html">شخصی‌سازی</a><button class="icon-button" type="button" data-theme-toggle aria-label="تغییر تم"><span data-theme-label>تم تیره</span></button></div></header><main class="container"><div class="page-head"><div class="eyebrow">کنترل‌های قالب</div><h1>شخصی‌سازی زنده</h1><p>تغییرات روی تمام صفحه‌های این مرورگر اعمال و ذخیره می‌شوند؛ داده‌ی ورود یا اطلاعات شخصی ذخیره نمی‌کنیم.</p></div><div class="admin-grid"><section class="panel"><h2>ظاهر پایه</h2><p class="sub">رنگ و تم را مطابق برندتان تنظیم کنید.</p><div class="setting"><div class="setting-head"><strong>رنگ تأکیدی</strong><output>انتخاب رنگ</output></div><div class="swatches"><button class="swatch" style="background:#d5f36a" aria-label="لیمویی" data-accent="#d5f36a"></button><button class="swatch" style="background:#70e0c1" aria-label="نعنایی" data-accent="#70e0c1"></button><button class="swatch" style="background:#ff9b76" aria-label="مرجانی" data-accent="#ff9b76"></button><button class="swatch" style="background:#a5a2ff" aria-label="یاسی" data-accent="#a5a2ff"></button><button class="swatch" style="background:#ffcf70" aria-label="طلایی" data-accent="#ffcf70"></button></div></div><div class="setting"><div class="setting-head"><strong>گردی گوشه‌ها</strong><output data-radius-output>24px</output></div><input class="range" type="range" min="12" max="36" value="24" data-radius aria-label="تنظیم گردی گوشه‌ها"></div><div class="setting"><div class="setting-head"><strong>میزان محوشدگی شیشه</strong><output data-blur-output>18px</output></div><input class="range" type="range" min="0" max="32" value="18" data-blur aria-label="تنظیم محوشدگی"></div><button class="btn primary" data-theme-toggle>تغییر تم <span data-theme-label></span></button></section><aside class="side-panel"><h3>پیش‌نمایش فوری</h3><p>به صفحه‌های دیگر بروید تا هماهنگی رنگ و تم را ببینید.</p><div class="demo-result"><strong>پالت فعلی</strong><br>رنگ‌ها فقط داخل مرورگر شما ذخیره می‌شوند.</div><a class="btn full" href="login.html">رفتن به ورود ←</a><button class="btn full" style="margin-top:10px" data-copy-config>کپی تنظیمات</button><button class="btn full" style="margin-top:10px" data-reset-settings>بازگرداندن تنظیمات اولیه</button><div class="notice"><span>ⓘ</span><span>این پنل تنظیمات رابط کاربری را تغییر می‌دهد؛ مجوز دسترسی یا پنل امن مدیریتی نیست.</span></div></aside></div></main><footer class="container footer"><span>© وب‌ریک · قالب نمایشی فارسی و RTL</span><nav class="footer-nav" aria-label="پیوندهای پایین صفحه"><a href="index.html">معرفی</a><a href="login.html">ورود</a><a href="register.html">ثبت‌نام</a><a href="reset-password.html">بازیابی</a><a href="demo.html">نمونه‌ها</a><a href="admin.html">شخصی‌سازی</a></nav></footer><div class="toast" role="status" aria-live="polite"></div></body></html>
+<!doctype html>
+<html lang='fa' dir='rtl' data-theme='dark'>
+<head>
+<meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1,viewport-fit=cover'><meta name='theme-color' content='#101b1a'><meta name='description' content='پنل شخصی‌سازی قالب وب‌ریک.'><title>شخصی‌سازی | وب‌ریک</title><link rel='icon' href='assets/favicon.svg' type='image/svg+xml'><link rel='stylesheet' href='css/site.css'>
+<script src='js/config.js'></script><script src='js/app.js' defer></script><script src='js/admin.js' defer></script>
+<style>
+.admin-shell{display:grid;grid-template-columns:170px minmax(0,1fr) minmax(0,1fr);gap:16px;padding-bottom:70px;align-items:start}
+.side-col{display:grid;gap:16px}
+.tabs .tab{display:block;width:100%;text-align:right;border:0;background:transparent;padding:10px 12px;border-radius:12px;color:var(--muted);margin-bottom:4px;cursor:pointer}
+.tabs .tab.on{background:var(--surface2);color:var(--ink);font-weight:800}
+.ctl{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0;border-top:1px solid var(--line)}
+.ctl .lbl{font-size:14px}
+.ctl input[type=text],.ctl select{flex:1;max-width:300px;min-width:0;height:38px;border:1px solid var(--line);border-radius:10px;background:var(--surface2);color:var(--ink);padding:0 10px;font:inherit}
+.listed{margin-top:22px;border-top:1px solid var(--line);padding-top:14px}
+.listed h3{font-size:16px;margin:0 0 8px}
+.item{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:8px 0;border-bottom:1px dashed var(--line)}
+.item input[type=text],.add input[type=text]{flex:1;min-width:110px;height:36px;border:1px solid var(--line);border-radius:10px;background:var(--surface2);color:var(--ink);padding:0 10px;font:inherit}
+.chk{display:flex;gap:4px;align-items:center;font-size:13px;color:var(--muted)}
+.add{display:flex;gap:8px;margin-top:10px}
+.ghost{background:transparent;border:1px solid var(--line);border-radius:10px;padding:6px 10px;color:var(--muted);cursor:pointer;font:inherit}
+.pagebtns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+#preview{width:100%;height:560px;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg)}
+.filebtn{display:block;text-align:center;cursor:pointer}
+@media(max-width:1100px){.admin-shell{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-page='admin'>
+<header class='container topbar'><a class='brand' href='index.html'><span class='brand-mark' data-cfg='site.brandMark'>و</span><span data-cfg='site.name'>وب‌ریک</span></a><nav class='nav' aria-label='ناوبری اصلی'><a data-nav='home' href='index.html'>معرفی</a><a data-nav='login' href='login.html'>ورود</a><a data-nav='register' href='register.html'>ثبت‌نام</a><a data-nav='reset' href='reset-password.html'>بازیابی</a><a data-nav='demo' href='demo.html'>نمونه‌ها</a></nav><div class='actions'><a class='btn quiet' href='admin.html' aria-current='page'>شخصی‌سازی</a><button class='icon-button' type='button' data-theme-toggle aria-label='تغییر تم'><span data-theme-label>تم تیره</span></button></div></header>
+<main class='container'>
+<div class='page-head'><div class='eyebrow'>پنل مدیریت</div><h1>شخصی‌سازی کامل سایت</h1><p>هر تغییر فوراً روی پیش‌نمایش میاد. وقتی راضی بودی، فایل config.js رو دانلود کن و توی پوشه‌ی js گیت‌هاب جایگزینش کن تا روی سایت زنده بشینه.</p></div>
+<div class='admin-shell'>
+ <aside class='panel'><div id='tabs' class='tabs'></div></aside>
+ <section class='panel'><div id='editor'></div></section>
+ <div class='side-col'>
+  <section class='panel'>
+   <div class='eyebrow'>ذخیره و انتقال</div>
+   <p id='status' class='sub'>آماده</p>
+   <button class='btn primary full' type='button' id='export'>دانلود config.js</button>
+   <button class='btn full' type='button' id='copy' style='margin-top:10px'>کپی کد تنظیمات</button>
+   <label class='btn full filebtn' style='margin-top:10px'>وارد کردن config.js<input type='file' id='import' accept='.js,.txt' hidden></label>
+   <button class='btn full' type='button' id='reset' style='margin-top:10px'>بازگشت به تنظیمات اصلی</button>
+   <div class='eyebrow' style='margin-top:20px'>پیش‌نمایش صفحه</div>
+   <div class='pagebtns'><button class='ghost' type='button' data-page-link='index.html'>معرفی</button><button class='ghost' type='button' data-page-link='login.html'>ورود</button><button class='ghost' type='button' data-page-link='register.html'>ثبت‌نام</button><button class='ghost' type='button' data-page-link='reset-password.html'>بازیابی</button><button class='ghost' type='button' data-page-link='demo.html'>نمونه‌ها</button></div>
+  </section>
+  <iframe id='preview' src='index.html?preview=1' title='پیش‌نمایش'></iframe>
+ </div>
+</div>
+</main>
+<footer class='container footer'><div><span data-cfg='site.footer'>© وب‌ریک</span><br><small data-cfg='site.license'></small></div><nav class='footer-nav' aria-label='پیوندهای پایین صفحه'><a data-nav='home' href='index.html'>معرفی</a><a data-nav='login' href='login.html'>ورود</a><a data-nav='register' href='register.html'>ثبت‌نام</a><a data-nav='reset' href='reset-password.html'>بازیابی</a><a data-nav='demo' href='demo.html'>نمونه‌ها</a></nav></footer>
+<div class='toast' role='status' aria-live='polite'></div>
+</body>
+</html>
