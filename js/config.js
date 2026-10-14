@@ -62,8 +62,7 @@ window.WEBRIC_CONFIG = {
         { title: 'ثبت‌نام', text: 'فرم کامل ساخت حساب، قابل تنظیم از پنل.', href: 'register.html', icon: '＋' },
         { title: 'بازیابی مرحله‌ای', text: 'سه گام قابل کلیک برای مرور بازیابی رمز.', href: 'reset-password.html', icon: '⌁' },
         { title: 'گالری تم‌ها', text: 'حالت تیره و روشن را همین‌جا عوض کنید.', href: 'demo.html', icon: '◫' },
-        { title: 'شخصی‌سازی زنده', text: 'رنگ، متن، دکمه و احراز هویت را تنظیم کنید.', href: 'admin.html', icon: '⚙' },
-        { title: 'نصب ساده', text: 'فایل‌ها را روی هر هاست استاتیک بگذارید.', href: 'docs/INSTALLATION.md', icon: '⌘' }
+        { title: 'شخصی‌سازی زنده', text: 'رنگ، متن، دکمه و احراز هویت را تنظیم کنید.', href: 'admin.html', icon: '⚙' }
       ]
     },
     login: {
