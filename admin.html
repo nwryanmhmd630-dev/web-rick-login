@@ -27,15 +27,16 @@
 <body data-page='admin'>
 <header class='container topbar'><a class='brand' href='index.html'><span class='brand-mark' data-cfg='site.brandMark'>و</span><span data-cfg='site.name'>وب‌ریک</span></a><nav class='nav' aria-label='ناوبری اصلی'><a data-nav='home' href='index.html'>معرفی</a><a data-nav='login' href='login.html'>ورود</a><a data-nav='register' href='register.html'>ثبت‌نام</a><a data-nav='reset' href='reset-password.html'>بازیابی</a><a data-nav='demo' href='demo.html'>نمونه‌ها</a></nav><div class='actions'><a class='btn quiet' href='admin.html' aria-current='page'>شخصی‌سازی</a><button class='icon-button' type='button' data-theme-toggle aria-label='تغییر تم'><span data-theme-label>تم تیره</span></button></div></header>
 <main class='container'>
-<div class='page-head'><div class='eyebrow'>پنل مدیریت</div><h1>شخصی‌سازی کامل سایت</h1><p>هر تغییر فوراً روی پیش‌نمایش میاد. وقتی راضی بودی، فایل config.js رو دانلود کن و توی پوشه‌ی js گیت‌هاب جایگزینش کن تا روی سایت زنده بشینه.</p></div>
+<div class='page-head'><div class='eyebrow'>پنل مدیریت</div><h1>شخصی‌سازی کامل سایت</h1><p>هر تغییر فوراً روی پیش‌نمایش میاد. با دکمه‌ی «اعمال تغییرات» فایل تنظیمات آماده میشه و روی سایت زنده میشینه بعد از Commit.</p></div>
 <div class='admin-shell'>
  <aside class='panel'><div id='tabs' class='tabs'></div></aside>
  <section class='panel'><div id='editor'></div></section>
  <div class='side-col'>
   <section class='panel'>
-   <div class='eyebrow'>ذخیره و انتقال</div>
+   <div class='eyebrow'>اعمال و انتقال</div>
    <p id='status' class='sub'>آماده</p>
-   <button class='btn primary full' type='button' id='export'>دانلود config.js</button>
+   <button class='btn primary full' type='button' id='apply'>اعمال تغییرات روی سایت</button>
+   <button class='btn full' type='button' id='export' style='margin-top:10px'>فقط دانلود config.js</button>
    <button class='btn full' type='button' id='copy' style='margin-top:10px'>کپی کد تنظیمات</button>
    <label class='btn full filebtn' style='margin-top:10px'>وارد کردن config.js<input type='file' id='import' accept='.js,.txt' hidden></label>
    <button class='btn full' type='button' id='reset' style='margin-top:10px'>بازگشت به تنظیمات اصلی</button>

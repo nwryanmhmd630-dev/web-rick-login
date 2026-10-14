@@ -2,6 +2,7 @@
   'use strict';
   const KEY = 'webric-draft';
   const DEF = window.WEBRIC_CONFIG;
+  const EDIT_URL = 'https://github.com/nwryanmhmd630-dev/web-rick-login/edit/main/js/config.js';
   const clone = (o) => JSON.parse(JSON.stringify(o));
   let draft;
   try { draft = JSON.parse(localStorage.getItem(KEY)) || clone(DEF); } catch (e) { draft = clone(DEF); }
@@ -151,7 +152,16 @@
     const b = e.target.closest('[data-g]');
     if (b) { tab = b.dataset.g; render(); }
   });
-  $('#export').addEventListener('click', () => { download('config.js', asConfig()); status('config.js دانلود شد. اون رو توی پوشه‌ی js گیت‌هاب جایگزین کن.'); });
+  $('#apply').addEventListener('click', () => {
+    const text = asConfig();
+    download('config.js', text);
+    window.open(EDIT_URL, '_blank');
+    navigator.clipboard.writeText(text).then(
+      () => status('فایل دانلود شد و کدش کپی شد. توی صفحه‌ی گیت‌هاب که باز شد، کل محتوا رو پاک کن، Ctrl+V بزن و Commit کن.'),
+      () => status('فایل دانلود شد. توی گیت‌هاب محتوای فایل رو با فایل دانلودی عوض کن و Commit کن.')
+    );
+  });
+  $('#export').addEventListener('click', () => { download('config.js', asConfig()); status('config.js دانلود شد.'); });
   $('#copy').addEventListener('click', () => {
     navigator.clipboard.writeText(asConfig()).then(() => status('کپی شد')).catch(() => status('مرورگر اجازه‌ی کپی نداد'));
   });
